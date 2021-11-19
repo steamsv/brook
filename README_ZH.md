@@ -33,6 +33,25 @@ curl -L https://github.com/txthinking/brook/releases/latest/download/brook_linux
 chmod +x /usr/bin/brook
 ```
 
+### 作为system服务`/lib/systemd/system/brook.service`
+```
+[Unit]
+Description=brook service
+After=network.target syslog.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/brook socks5 --bindip 127.0.0.1 --socks5 127.0.0.1:6443
+[Install]
+WantedBy=multi-user.target
+```
+- 生效
+
+```
+systemctl daemon-reload
+systemctl restart brook
+```
 ### [推荐] 通过 [nami](https://github.com/txthinking/nami) 安装 CLI, 并通过 [joker](https://github.com/txthinking/joker) 运行 `brook wswserver`
 
 > 😘 只需复制这四行命令粘贴即可, 你可以称此为**💛一键脚本💛**
