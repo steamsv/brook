@@ -1,0 +1,10 @@
+[Unit]
+Description=brook service
+After=network.target syslog.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/brook socks5 --bindip 127.0.0.1 --socks5 127.0.0.1:6443
+[Install]
+WantedBy=multi-user.target
