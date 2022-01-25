@@ -42,7 +42,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/brook socks5 --bindip 127.0.0.1 --socks5 127.0.0.1:6443
+ExecStart=/usr/bin/brook socks5 --socks5 0.0.0.0:8443
 [Install]
 WantedBy=multi-user.target
 ```
