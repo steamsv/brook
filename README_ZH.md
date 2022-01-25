@@ -51,6 +51,7 @@ WantedBy=multi-user.target
 ```
 systemctl daemon-reload
 systemctl restart brook
+systemctl enable brook
 ```
 ### [推荐] 通过 [nami](https://github.com/txthinking/nami) 安装 CLI, 并通过 [joker](https://github.com/txthinking/joker) 运行 `brook wswserver`
 
